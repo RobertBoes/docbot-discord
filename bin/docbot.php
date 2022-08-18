@@ -78,7 +78,7 @@ $discord->listenCommand('docs', function (Interaction $interaction) use ($discor
     }
 
     $row = ActionRow::new();
-    foreach ($suggestions as $suggestion) {
+    foreach (array_slice($suggestions, 0, 5) as $suggestion) {
         $row->addComponent(
             Button::new(Button::STYLE_PRIMARY)
                 ->setLabel($suggestion)
