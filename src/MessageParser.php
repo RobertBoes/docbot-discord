@@ -2,7 +2,7 @@
 namespace Docbot;
 
 class MessageParser {
-    protected $docs = [
+    public static $docs = [
                 "artisan",
                 "authentication",
                 "authorization",
@@ -97,7 +97,7 @@ class MessageParser {
         // cheap hack to force `docs ` input
         $query = substr($message->content, 5);
 
-        if(in_array($query, $this->docs)){
+        if(in_array($query, self::$docs)){
 
             return "<https://laravel.com/docs/$query>";
         }
